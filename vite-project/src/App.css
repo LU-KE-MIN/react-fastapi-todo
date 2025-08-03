@@ -1,0 +1,215 @@
+/* ----------------------------- */
+/* 🌗 共通スタイルと変数定義 */
+/* ----------------------------- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  transition: background 0.3s, color 0.3s;
+  background-color: var(--bg-primary);
+  overflow-x: hidden; /* ✅ 横スクロールによるレイアウト崩れを防止 */
+}
+
+/* メインアプリコンテナ中央配置 */
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 5vh;
+  width: 100vw;     /* ✅ 画面幅いっぱいに表示 */
+  height: 100vh;    /* ✅ 画面高さいっぱいに表示 */
+  background-color: var(--bg-primary);
+  box-sizing: border-box;
+}
+
+/* ----------------------------- */
+/* 📦 タスク一覧用のコンテナ */
+/* ----------------------------- */
+.container {
+  background-color: var(--bg-secondary);
+  color: var(--text-color);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  min-width: 300px;
+  max-width: 90vw;
+}
+
+.container h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* ----------------------------- */
+/* ✍️ タスク入力エリア */
+/* ----------------------------- */
+.input-group {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.input-group input[type="text"] {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--input-border);
+  border-radius: 6px 0 0 6px;
+  outline: none;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+.input-group button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  background-color: var(--btn-color);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.input-group button:hover {
+  background-color: var(--btn-hover);
+}
+
+/* ----------------------------- */
+/* 📊 進捗バーの表示 */
+/* ----------------------------- */
+.progress {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: var(--bar-bg);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--bar-fill);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* ----------------------------- */
+/* 📋 タスクリストスタイル */
+/* ----------------------------- */
+.task-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.task-item {
+  background-color: var(--task-bg);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.task-title {
+  cursor: pointer;
+}
+
+.task-title.done {
+  text-decoration: line-through;
+  color: var(--text-done);
+}
+
+.task-edit-input {
+  flex: 1;
+  padding: 0.4rem;
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+/* 編集・削除ボタン */
+.task-actions button {
+  margin-left: 6px;
+  background: none;
+  border: none;
+  color: var(--icon-color);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.task-actions button:hover {
+  color: var(--icon-hover);
+}
+
+/* ----------------------------- */
+/* 🎛️ テーマ切替ボタン */
+/* ----------------------------- */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--bg-secondary);
+  border: 2px solid var(--icon-color);
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  color: var(--icon-color);
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: var(--icon-hover-bg);
+  transform: scale(1.1);
+}
+
+/* ----------------------------- */
+/* 🌞 ライトテーマの変数定義 */
+/* ----------------------------- */
+body.light {
+  --bg-primary: #f0f0f0;
+  --bg-secondary: #ffffff;
+  --text-color: #111111;
+  --text-done: #888888;
+  --btn-color: #007bff;
+  --btn-hover: #0056b3;
+  --bar-bg: #e0e0e0;
+  --bar-fill: #007bff;
+  --task-bg: #f6f6f6;
+  --input-border: #ccc;
+  --input-bg: #ffffff;
+  --icon-color: #333333;
+  --icon-hover: #007bff;
+  --icon-hover-bg: #f0f0f0;
+}
+
+/* ----------------------------- */
+/* 🌙 ダークテーマの変数定義 */
+/* ----------------------------- */
+body.dark {
+  --bg-primary: #1e1e1e;
+  --bg-secondary: #2a2a2a;
+  --text-color: #f0f0f0;
+  --text-done: #888888;
+  --btn-color: #4da6ff;
+  --btn-hover: #1e90ff;
+  --bar-bg: #444444;
+  --bar-fill: #4da6ff;
+  --task-bg: #383838;
+  --input-border: #555;
+  --input-bg: #2a2a2a;
+  --icon-color: #cccccc;
+  --icon-hover: #4da6ff;
+  --icon-hover-bg: #444;
+}
