@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>タスクリスト</title>
+  <style>
+    body { font-family: Arial; margin: 2rem; }
+    h1 { color: #2c3e50; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 0.5rem; border-bottom: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h1>📋 タスクリスト</h1>
+  <ul>
+    {% for task in tasks %}
+      <li>{{ task.id }}. {{ task.title }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
